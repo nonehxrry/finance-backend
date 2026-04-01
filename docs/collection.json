@@ -1,0 +1,59 @@
+{
+	"info": {
+		"name": "Finance API Documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth: Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Harjit Singh\",\n  \"email\": \"harjit@test.com\",\n  \"password\": \"password123\",\n  \"role\": \"Admin\"\n}",
+					"options": { "json": { "language": "json" } }
+				},
+				"url": { "raw": "http://localhost:3000/api/auth/register" }
+			}
+		},
+		{
+			"name": "Auth: Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"harjit@test.com\",\n  \"password\": \"password123\"\n}",
+					"options": { "json": { "language": "json" } }
+				},
+				"url": { "raw": "http://localhost:3000/api/auth/login" }
+			}
+		},
+		{
+			"name": "Records: Add Entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer <YOUR_TOKEN_HERE>", "type": "text" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 5000,\n  \"type\": \"income\",\n  \"category\": \"Salary\",\n  \"date\": \"2026-04-01\",\n  \"description\": \"Stipend\"\n}",
+					"options": { "json": { "language": "json" } }
+				},
+				"url": { "raw": "http://localhost:3000/api/records" }
+			}
+		},
+		{
+			"name": "Dashboard: Get Summary",
+			"request": {
+				"method": "GET",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer <YOUR_TOKEN_HERE>", "type": "text" }
+				],
+				"url": { "raw": "http://localhost:3000/api/dashboard/summary" }
+			}
+		}
+	]
+}
